@@ -1,0 +1,53 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>-->
+{% extends 'admin_index.html' %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="addpumporworkshop#about">
+  <table  border="1" class="table table-hover table-dark">
+
+     <tr>
+         <td>#</td>
+      <td>Name </td>
+      <td>Location</td>
+      <td>Phone No </td>
+      <td>lattitude</td>
+      <td>longitude</td>
+      <td>status</td>
+      <td>Type</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    {% for i in val %}
+    <tr>
+        <td>{{ loop.index }}</td>
+      <td>&nbsp;{{i['name']}}</td>
+      <td>&nbsp;{{i['place']}}</td>
+      <td>&nbsp;{{i['phone']}}</td>
+      <td>{{i['latitude']}}</td>
+      <td>{{i['longitude']}}</td>
+      <td>{{i['status']}}</td>
+      <td>{{i['type']}}</td>
+      <td><a href="editpumporworkshop1?id={{i['id']}}#about">Edit</a></td>
+      <td><a href="deletepumporworkshop1?id={{i['id']}}#about">Delete</a></td>
+    </tr>
+    {% endfor %}
+    </tr>
+    <tr>
+      <td colspan="10" align="center">
+          <input type="submit" name="Submit2" value="Add" />
+          </td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}
+

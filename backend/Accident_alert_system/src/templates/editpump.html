@@ -1,0 +1,68 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'admin_index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="editpumporworkshop">
+  <table width="200" border="1" class="table table-hover table-dark">
+    <tr>
+      <td>Name</td>
+      <td>
+        <input type="text" name="textfield" VALUE="{{val['name']}}" required pattern="[A-Z a-z.]{3,25}"/>
+      </td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td>
+        <input type="text" name="textfield2" VALUE="{{val['place']}}" required pattern="[A-Z a-z.]{3,25}"/>
+      </td>
+    </tr>
+    <tr>
+      <td>Phone No </td>
+      <td>
+        <input type="text" name="textfield3" VALUE="{{val['phone']}}" required pattern="[6789][0-9]{9}"/>
+      </td>
+    </tr>
+    <tr>
+      <td>Lattitude</td>
+      <td>
+        <input type="text" name="textfield4" VALUE="{{val['latitude']}}" reqauired/>
+      </td>
+    </tr>
+    <tr>
+      <td>Longitude</td>
+      <td>
+        <input type="text" name="textfield5" VALUE="{{val['longitude']}}" required/>
+      </td>
+    </tr>
+    <tr>
+       <tr>
+      <td>status</td>
+      <td>
+        <input type="text" name="textfield6" VALUE="{{val['status']}}" required/>
+      </td>
+    </tr>
+      <td>Type</td>
+      <td>
+          <select name="select">
+            <option {% if val['type']=="pumb" %} selected {% endif %}>pump</option>
+            <option {% if val['type']=="workshop" %} selected {% endif %}>workshop</option>
+          </select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="UPDATE" />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

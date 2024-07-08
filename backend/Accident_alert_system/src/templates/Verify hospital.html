@@ -1,0 +1,47 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>-->
+{% extends 'admin_index.html' %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1" id="customers" class="table table-striped table-dark">
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone no </th>
+      <th>Email</th>
+      <th>Location</th>
+      <th>&nbsp;</th>
+    </tr>
+   {% for i in val %}
+    <tr>
+      <td>&nbsp;{{i['hname']}}</td>
+      <td>&nbsp;{{i['place']}},{{i['pin']}},{{i['post']}}</td>
+      <td>&nbsp;{{i['phno']}}</td>
+      <td> {{i['email']}}</td>
+      <td>{{i['latitude']}},{{i['longitude']}}</td>
+      <td>{% if i['type']=='pending' %}
+        <a href="hs_verify?id={{i['lid']}}" >Accept</a></p>
+      <p><a href="hs_rej?id={{i['lid']}}">Reject</a></p>
+        {% elif i['type']=='Rejected' %}
+         <a href="hs_verify?id={{i['lid']}}" >Accept</a></p>
+        {% else %}
+              <p><a href="hs_rej?id={{i['lid']}}">Reject</a></p>
+        {% endif %}
+
+
+
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

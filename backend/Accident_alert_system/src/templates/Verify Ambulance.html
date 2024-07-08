@@ -1,0 +1,37 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'admin_index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1" class="table table-hover table-dark">
+    <tr>
+      <td>Driver Name</td>
+      <td>Ambulance Number </td>
+      <td>Phone No </td>
+      <td>&nbsp;</td>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td>&nbsp;{{i['dname']}}</td>
+      <td>&nbsp;{{i['Anumber']}}</td>
+      <td>&nbsp;{{i['phone']}}</td>
+      <td>{% if i['type']=='pending' %}
+        <p><a href="AD_verify?id={{i['lid']}}">Verify</a></p>
+      <p><a href="AD_Rej?id={{i['lid']}}">Reject</a></p>
+        {% elif i['type']=='Rejected' %}
+          <p><a href="AD_verify?id={{i['lid']}}">Verify</a></p>
+        {% else %}
+         <p><a href="AD_Rej?id={{i['lid']}}">Reject</a></p>
+        {% endif %}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}
